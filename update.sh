@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # generate rc file
-SCRIPT_DIR = ~/devenv/template
-OUTFILE = ~/.devrc.sh
+SCRIPT_DIR=~/devenv/template
+OUTFILE=~/.devrc.sh
 echo "Generating $OUTFILE"
 cat $SCRIPT_DIR/rc.sh > $OUTFILE
 cat $SCRIPT_DIR/aliases.sh >> $OUTFILE
