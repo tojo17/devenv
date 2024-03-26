@@ -15,5 +15,5 @@ if grep -q Microsoft /proc/version; then
     WIN_HOME="$(wslpath $(powershell.exe -NoProfile -NonInteractive -Command "\$Env:UserProfile"))" 
     echo "Windows home path: $WIN_HOME"
     # replace {[win_home]} with $WIN_HOME for wsl.sh, and append to $OUTFILE
-    sed "s/{\[win_home\]}/$WIN_HOME/g" $SCRIPT_DIR/wsl.sh >> $OUTFILE
+    sed "s|{\[win_home\]}|$WIN_HOME|g" $SCRIPT_DIR/wsl.sh >> $OUTFILE
 fi
