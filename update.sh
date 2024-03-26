@@ -6,7 +6,7 @@ git -C ~/devenv pull
 SCRIPT_DIR=~/devenv/template
 OUTFILE=~/.devrc.sh
 echo "Generating $OUTFILE"
-cat $SCRIPT_DIR/rc.sh > $OUTFILE
+cat $SCRIPT_DIR/rc.sh >| $OUTFILE
 cat $SCRIPT_DIR/aliases.sh >> $OUTFILE
 # check if WSL
 if grep -q Microsoft /proc/version; then
