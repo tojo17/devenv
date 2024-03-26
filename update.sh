@@ -7,7 +7,9 @@ SCRIPT_DIR=~/devenv/template
 OUTFILE=~/.devrc
 echo "Generating $OUTFILE"
 cat $SCRIPT_DIR/rc.sh >| $OUTFILE
+echo "" >> $OUTFILE
 cat $SCRIPT_DIR/aliases.sh >> $OUTFILE
+echo "" >> $OUTFILE
 # check if WSL
 if grep -q Microsoft /proc/version; then
     echo "WSL detected"
