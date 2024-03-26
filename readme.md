@@ -16,6 +16,8 @@ plugins=(
         thefuck
         zsh-autocomplete
 )
+
+eval "$(thefuck --alias)"
 ```
 
 ## WSL
