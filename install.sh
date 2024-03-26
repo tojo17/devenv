@@ -1,13 +1,15 @@
 #!/bin/bash
 
 # on error exit
-set -e
+(
+    set -e
 
-# git should be already installed
-git clone https://github.com/toshichi/devenv.git ~/devenv
+    # git should be already installed
+    git clone https://github.com/toshichi/devenv.git ~/devenv
 
-# run update.sh to generate rc file
-source ~/devenv/update.sh
+    # run update.sh to generate rc file
+    source ~/devenv/update.sh
+)
 
 # add rc.sh to current shell rc
 # if bash
