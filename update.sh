@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# pull latest
+git -C ~/devenv pull
 # generate rc file
 SCRIPT_DIR=~/devenv/template
 OUTFILE=~/.devrc.sh
