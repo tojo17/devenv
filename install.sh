@@ -13,12 +13,12 @@
     # add rc.sh to current shell rc
     # if bash
     if [ -n "$BASH_VERSION" ]; then
-        echo "source ~/.devrc.sh" >> ~/.bashrc
-        echo "added source ~/.devrc.sh to ~/.bashrc"
+        echo "source ~/.devrc" >> ~/.bashrc
+        echo "added source ~/.devrc to ~/.bashrc"
     fi
     # if zsh
     if [ -n "$ZSH_VERSION" ]; then
-        echo "source ~/.devrc.sh" >> ~/.zshrc
-        echo "added source ~/.devrc.sh to ~/.zshrc"
+        echo "source ~/.devrc" >> ~/.zshrc
+        echo "added source ~/.devrc to ~/.zshrc"
     fi
 )

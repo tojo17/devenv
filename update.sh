@@ -4,7 +4,7 @@
 git -C ~/devenv pull
 # generate rc file
 SCRIPT_DIR=~/devenv/template
-OUTFILE=~/.devrc.sh
+OUTFILE=~/.devrc
 echo "Generating $OUTFILE"
 cat $SCRIPT_DIR/rc.sh >| $OUTFILE
 cat $SCRIPT_DIR/aliases.sh >> $OUTFILE
