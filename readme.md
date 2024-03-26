@@ -1,5 +1,5 @@
 ``` bash
-bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/toshichi/devenv/master/install.sh)"
+. <(curl --fail --show-error --silent --location https://raw.githubusercontent.com/toshichi/devenv/master/install.sh)
 ```
 
 ## Useful plugins
