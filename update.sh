@@ -11,7 +11,7 @@ echo "" >> $OUTFILE
 cat $SCRIPT_DIR/aliases.sh >> $OUTFILE
 echo "" >> $OUTFILE
 # check if WSL
-if grep -q Microsoft /proc/version; then
+if grep -iq Microsoft /proc/version; then
     echo "WSL detected"
     # get windows home path
     WIN_HOME="$(wslpath $(powershell.exe -NoProfile -NonInteractive -Command "\$Env:UserProfile" | tr -d '\r'))" 
