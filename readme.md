@@ -1,8 +1,18 @@
+# Dev Environment Quick Setup
+
+This applies some rc and aliases to bash or zsh.  
+If using WSL, it also sets up wsl-ssh-agent and sync ssh keys with Windows.  
+You should install git before running this script. No zsh or zsh plugins are installed.
+
+## Install
+
 ``` bash
 . <(curl --fail --show-error --silent --location -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/toshichi/devenv/master/install.sh)
 ```
 
 ## Useful plugins
+
+This should be installed after running the script.
 
 ### `.zshrc`
 
