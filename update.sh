@@ -4,9 +4,22 @@
 git -C ~/devenv pull
 # generate rc file
 SCRIPT_DIR=~/devenv/template
-OUTFILE=~/.devrc
+
+# if bash
+if [ -n "$BASH_VERSION" ]; then
+    echo "bash detected"
+    RC_FILE=$SCRIPT_DIR/rc_bash.sh
+    OUTFILE=~/.devbashrc
+fi
+# if zsh
+if [ -n "$ZSH_VERSION" ]; then
+    echo "bash detected"
+    RC_FILE=$SCRIPT_DIR/rc_zsh.sh
+    OUTFILE=~/.devzshrc
+fi
+
 echo "Generating $OUTFILE"
-cat $SCRIPT_DIR/rc.sh >| $OUTFILE
+cat $RC_FILE >| $OUTFILE
 echo "" >> $OUTFILE
 cat $SCRIPT_DIR/aliases.sh >> $OUTFILE
 echo "" >> $OUTFILE
