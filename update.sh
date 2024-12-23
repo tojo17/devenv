@@ -13,7 +13,7 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 # if zsh
 if [ -n "$ZSH_VERSION" ]; then
-    echo "bash detected"
+    echo "zsh detected"
     RC_FILE=$SCRIPT_DIR/rc_zsh.sh
     OUTFILE=~/.devzshrc
 fi

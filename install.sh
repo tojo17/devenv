@@ -4,8 +4,10 @@
 (
     set -e
 
+    TARGET_DIR=~/devenv
+
     # git should be already installed
-    git clone https://github.com/toshichi/devenv.git ~/devenv
+    git -C "$TARGET_DIR" pull || git clone https://github.com/toshichi/devenv.git "$TARGET_DIR"
 
     # run update.sh to generate rc file
     source ~/devenv/update.sh
