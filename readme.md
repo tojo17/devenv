@@ -4,6 +4,24 @@ This applies some rc and aliases to bash or zsh.
 If using WSL, it also sets up wsl-ssh-agent and sync ssh keys with Windows.  
 You should install git before running this script. No zsh or zsh plugins are installed.
 
+## Before Install
+
+### WSL
+
+#### wsl-ssh-agent
+
+- Enable Windows service `OpenSSH Authentication Agent`
+- Download https://github.com/rupor-github/wsl-ssh-agent
+- Add new task with Task Scheduler
+  - Condition: User Login
+  - Target: The exe file above
+  - Param: `-socket C:\Users\toshichi\ssh-agent.sock` (Use your own user name)
+  - referring to `sshagent.xml`
+- Run the task manually for the first time
+- After install this script, try `ssh-add -l` in WSL
+
+Ref: [混沌を極めるWindowsのssh-agent事情](https://qiita.com/slotport/items/e1d5a5dbd3aa7c6a2a24#wsl1wsl2-%E3%81%AE-ssh-agent)
+
 ## Install
 
 ``` bash
@@ -14,9 +32,13 @@ You should install git before running this script. No zsh or zsh plugins are ins
 
 - Make a `.devzshrc` or a `.devbashrc` in your home directory with commands from:
   - `rc_bash.sh` or `rc_zsh.sh`
-    - 
+    - key bindings
   - `aliases.sh`
+    - some useful aliases
   - if WSL, `wsl.sh`
+    - sync ssh keys with Windows
+    - set up wsl-ssh-agent
+
 
 ## Useful plugins
 
@@ -40,15 +62,5 @@ eval "$(thefuck --alias)"
 
 ## WSL
 
-### wsl-ssh-agent
 
-- `OpenSSH Authentication Agent` のサービスを有効
-- https://github.com/rupor-github/wsl-ssh-agent をダウンロード
-- Task Scheduler に新しいタスクを追加、条件はユーザーログオン、目標プログラムは上の exe、引数は `-socket C:\Users\toshichi\ssh-agent.sock` (自分のユーザー名にして)
-    - referring to `sshagent.xml`
-- 上のタスクを一回実行
-- WSL の .bashrc などに `export SSH_AUTH_SOCK=/mnt/c/Users/toshichi/ssh-agent.sock` を追加
-- WSL を立ち上げ直り、ssh-add -l を実行、キーが出たら成功
-
-参考： [https://qiita.com/slotport/items/e1d5a5dbd3aa7c6a2a24#wsl1wsl2-の-ssh-agent](https://qiita.com/slotport/items/e1d5a5dbd3aa7c6a2a24#wsl1wsl2-%E3%81%AE-ssh-agent)
 
