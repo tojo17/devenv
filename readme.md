@@ -10,6 +10,14 @@ You should install git before running this script. No zsh or zsh plugins are ins
 . <(curl --fail --show-error --silent --location -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/toshichi/devenv/master/install.sh)
 ```
 
+## What this script does
+
+- Make a `.devzshrc` or a `.devbashrc` in your home directory with commands from:
+  - `rc_bash.sh` or `rc_zsh.sh`
+    - 
+  - `aliases.sh`
+  - if WSL, `wsl.sh`
+
 ## Useful plugins
 
 This should be installed after running the script.
