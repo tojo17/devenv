@@ -32,3 +32,14 @@ if grep -iq Microsoft /proc/version; then
     # replace {[win_home]} with $WIN_HOME for wsl.sh, and append to $OUTFILE
     sed "s|{\[win_home\]}|$WIN_HOME|g" $SCRIPT_DIR/wsl.sh >> $OUTFILE
 fi
+
+# pull update for all plugins if exists
+mkdir -p ~/devenv-plugins
+for plugin in $(ls ~/devenv-plugins); do
+    # check if git repo
+    if [ -d ~/devenv-plugins/$plugin/.git ]; then
+        git -C ~/devenv-plugins/$plugin pull
+    else
+        echo "$plugin is not a git repo, skipping"
+    fi
+done
