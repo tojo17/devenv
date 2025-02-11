@@ -6,13 +6,6 @@ You should install git before running this script. No zsh or zsh plugins are ins
 
 ## Before Install
 
-### zsh
-
-If your zsh comes with your OS, you may want to run `zsh-newuser-install` or:
-``` bash
-autoload -Uz zsh-newuser-install; zsh-newuser-install -f
-```
-
 ### WSL
 
 - Enable Windows service `OpenSSH Authentication Agent`
@@ -46,7 +39,12 @@ Ref: [混沌を極めるWindowsのssh-agent事情](https://qiita.com/slotport/it
 ## What this script does
 
 - Make a `.devzshrc` or a `.devbashrc` in your home directory with commands from:
-  - `rc_bash.sh` or `rc_zsh.sh`
+  - `rc_bash.sh`
+    - color settings
+    - key bindings
+  - or `rc_zsh.sh`
+    - default history / auto complete settings
+    - color settings
     - key bindings
   - `aliases.sh`
     - some useful aliases
@@ -65,31 +63,28 @@ Ref: [混沌を極めるWindowsのssh-agent事情](https://qiita.com/slotport/it
 
 ### Some useful plugins
 
+You can install them with `install_plugins.zsh` or manually.
+
 - Japanese font: [Explex NF](https://github.com/yuru7/Explex)
 - [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
-
-  ``` bash
-  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/devenv-plugins/powerlevel10k
-  echo 'source ~/devenv-plugins/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
-  ```
-
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
-- 
+- [extract](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/extract)
+  - This is a part of oh-my-zsh, but you can install it separately.
+  - You still need to clone the whole oh-my-zsh to make it easier to update.
+- ~~[zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md)~~
+- [fast-syntax-highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting)
+- [zsh-z](https://github.com/agkozak/zsh-z)
+- [thefuck](https://github.com/nvbn/thefuck)
+  - `pip install thefuck` should be run manually
 
 
+## Other memo
 
-### `.zshrc`
+### zsh
 
+If your zsh comes with your OS, you may want to run `zsh-newuser-install` or when it don't work:
 ``` bash
-plugins=(
-        git
-        extract
-        z
-        zsh-syntax-highlighting
-        zsh-autosuggestions
-        thefuck
-        zsh-autocomplete
-)
-
-eval "$(thefuck --alias)"
+autoload -Uz zsh-newuser-install; zsh-newuser-install -f
 ```
+
+This is not necessary if you are OK with the default settings.
