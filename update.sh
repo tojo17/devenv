@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # pull latest
 git -C ~/devenv pull
 # generate rc file
