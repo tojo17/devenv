@@ -13,7 +13,7 @@ alias scp='scp.exe'
 alias sftp='sftp.exe'
 
 # use windows git
-# alias git='git.exe'
+alias git='git.exe'
 
 # change windows dir color under ls
 # dark gray for 256 terminals

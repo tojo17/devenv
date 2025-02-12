@@ -22,9 +22,9 @@
         echo "added source ~/.devzshrc to ~/.zshrc"
     fi
     # if WSL
-    if grep -iq Microsoft /proc/version; then
-        echo "Set WSL git to use Windows ssh.exe"
-        git config --global core.sshcommand "ssh.exe"
-        echo "Remove with 'git config --global --unset core.sshcommand' if you have different choice"
-    fi
+    # if grep -iq Microsoft /proc/version; then
+    #     echo "Set WSL git to use Windows ssh.exe"
+    #     git config --global core.sshcommand "ssh.exe"
+    #     echo "Remove with 'git config --global --unset core.sshcommand' if you have different choice"
+    # fi
 )
