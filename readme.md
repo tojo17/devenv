@@ -82,6 +82,7 @@ About the clients under WSL, we have the following options:
   - Set the aliases of ssh binaries as above, but no need to set git alias
   - Set WSL git to use Windows ssh.exe by `git config --global core.sshcommand "ssh.exe"`
     - This may cause git pull to fail, so you may need to update Windows OpenSSH client to the latest preview version by `winget install "openssh preview"` (PowerShell)
+    - Installing openssh preview may auto start windows's ssh-agent and sshd services.
   - WSL git uses WSL's config file, separate from Windows git, so you can have different settings for each.
 - Windows OpenSSH client + WSL git client via WSL ssh client
   - *Need to pass keys to WSL's ssh client(see below)
