@@ -66,7 +66,7 @@ We will discuss them from the end of the flow to the beginning.
 #### 1. Clients
 
 About the clients under WSL, we have the following options:
-- Windows OpenSSH client + Windows git client
+- Windows OpenSSH client + Windows git client (**<--Used by this script**)
   - Set alias by
     ``` bash
     # ssh binaries
@@ -78,11 +78,12 @@ About the clients under WSL, we have the following options:
     alias git='git.exe'
     ```
   - Should work well but git.exe uses config file from Windows, so the new line character may cause trouble.
-- Windows OpenSSH client + WSL git client (**<--Used by this script**)
+- Windows OpenSSH client + WSL git client
   - Set the aliases of ssh binaries as above, but no need to set git alias
   - Set WSL git to use Windows ssh.exe by `git config --global core.sshcommand "ssh.exe"`
-    - This may cause git pull to fail, so you may need to update Windows OpenSSH client to the latest preview version by `winget install "openssh preview"` (PowerShell)
+    - This may cause git pull to stuck, so you may need to update Windows OpenSSH client to the latest preview version by `winget install "openssh preview"` (PowerShell)
     - Installing openssh preview may auto start windows's ssh-agent and sshd services.
+    - Even if you update it still may not work.
   - WSL git uses WSL's config file, separate from Windows git, so you can have different settings for each.
 - Windows OpenSSH client + WSL git client via WSL ssh client
   - *Need to pass keys to WSL's ssh client(see below)
