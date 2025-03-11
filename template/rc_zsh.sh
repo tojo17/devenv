@@ -25,8 +25,10 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # processing for all platforms
-bindkey '^H' backward-kill-word
-bindkey '^[[3;5~' kill-word
-bindkey  "^[[H"   beginning-of-line
-bindkey  "^[[F"   end-of-line
-bindkey  "^[[3~"  delete-char
+if [[ -t 1 ]]; then
+    bindkey '^H' backward-kill-word
+    bindkey '^[[3;5~' kill-word
+    bindkey  "^[[H"   beginning-of-line
+    bindkey  "^[[F"   end-of-line
+    bindkey  "^[[3~"  delete-char
+fi
