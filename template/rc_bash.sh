@@ -8,7 +8,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # processing for all platforms
-if [[ -t 1 ]]; then
+if [[ $- == *i* ]] && [[ -t 1 ]]; then # if running interactively
     bind '"\C-h": backward-kill-word'
     bind '"\e[3;5~": kill-word'
     bind '"\e[1~": beginning-of-line'  # \e[1~ is often used for Home key
