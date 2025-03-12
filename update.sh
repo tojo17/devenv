@@ -16,6 +16,13 @@ if [ -n "$ZSH_VERSION" ]; then
     OUTFILE=~/.devzshrc
 fi
 
+# if OUTFILE is not set, exit
+if [ -z "$OUTFILE" ]; then
+    echo "Shell not supported or not detected"
+    exit 1
+fi
+
+
 echo "Generating $OUTFILE"
 cat $RC_FILE >| $OUTFILE
 echo "" >> $OUTFILE
