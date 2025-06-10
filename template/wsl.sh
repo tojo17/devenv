@@ -14,6 +14,7 @@ alias sftp='sftp.exe'
 
 # use windows git
 alias git='git.exe'
+alias gh='gh.exe'
 
 # change windows dir color under ls
 # dark gray for 256 terminals
