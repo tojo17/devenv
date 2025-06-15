@@ -25,7 +25,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # processing for all platforms
-if [[ $- == *i* ]] && [[ -t 1 ]]; then # if running interactively
+if [[ $- == *i* ]] && [[ -o interactive ]]; then # if running interactively
     bindkey '^H' backward-kill-word
     bindkey '^[[3;5~' kill-word
     bindkey  "^[[H"   beginning-of-line
