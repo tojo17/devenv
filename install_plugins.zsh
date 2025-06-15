@@ -1,7 +1,7 @@
 # powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/devenv-plugins/powerlevel10k
 # only start when attached to a terminal to avoid errors
-echo '[[ -t 1 ]] && source ~/devenv-plugins/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
+echo '[[ $- == *i* ]] && source ~/devenv-plugins/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
 
 # zsh-autosuggestions
 git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git ~/devenv-plugins/zsh-autosuggestions
