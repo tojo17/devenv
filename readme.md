@@ -129,7 +129,7 @@ If you choosed to use WSL's ssh client in the above section, we need to make ssh
 
 #### 3. Windows's ssh-agent
 
-If we use ssh.exe, we shoule make ssh-agent work in Windows:
+If we use ssh.exe, we should make ssh-agent work in Windows:
 - Use Windows OpenSSH agent by enabling `OpenSSH Authentication Agent` service
 - Or use password manager's ssh-agent, like Bitwarden, KeePassXC or 1Password
 
