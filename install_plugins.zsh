@@ -54,7 +54,7 @@ safe_clone() {
 # powerlevel10k
 if safe_clone "https://github.com/romkatv/powerlevel10k.git" "$PLUGINS_DIR/powerlevel10k"; then
     # only start when attached to a terminal to avoid errors
-    safe_append_zshrc '[[ -t 1 ]] && source ~/devenv-plugins/powerlevel10k/powerlevel10k.zsh-theme'
+    safe_append_zshrc '[[ $- == *i* ]] && source ~/devenv-plugins/powerlevel10k/powerlevel10k.zsh-theme'
 fi
 
 # zsh-autosuggestions
