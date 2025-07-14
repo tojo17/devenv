@@ -17,7 +17,25 @@ export PATH
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    # Validate dircolors file before evaluating it
+    if [ -f ~/.dircolors ]; then
+        # Check if file is readable and not empty
+        if [ -r ~/.dircolors ] && [ -s ~/.dircolors ]; then
+            # Check if file contains any suspicious content
+            if ! grep -q "[;&|]" ~/.dircolors; then
+                eval "$(dircolors -b ~/.dircolors)" || echo "Warning: Failed to eval dircolors from ~/.dircolors"
+            else
+                echo "Warning: Skipping ~/.dircolors due to suspicious content"
+                eval "$(dircolors -b)"
+            fi
+        else
+            echo "Warning: ~/.dircolors exists but is not readable or is empty"
+            eval "$(dircolors -b)"
+        fi
+    else
+        eval "$(dircolors -b)"
+    fi
+    
     alias ls='ls --color=auto'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
