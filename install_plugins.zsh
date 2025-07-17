@@ -90,5 +90,5 @@ else
     echo "Note: 'thefuck' command not found. Install it with: pip install thefuck"
 fi
 
-echo "\nAll plugins installed successfully!"
+printf "\nAll plugins installed successfully!\n"
 echo "Run 'source ~/.zshrc' to apply changes or restart your terminal"
