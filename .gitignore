@@ -1,0 +1,33 @@
+# Generated RC files (these are created by update.sh)
+.devzshrc
+.devbashrc
+
+# Plugin directory (auto-managed)
+devenv-plugins/
+
+# Backup files
+*.bak
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+
+# Claude AI files
+.claude/
