@@ -22,5 +22,41 @@ export LS_COLORS="$LS_COLORS:ow=34;48;5;233:"
 # black for ANSI terminal
 # export LS_COLORS="$LS_COLORS:ow=34;40:"
 
-# cd to windows path
-cdw () { cd "$(wslpath "$1")"; }
+# functions for interactive shells only
+if [[ $- == *i* ]]; then # if running interactively
+    # cd to windows path - safely handle paths with spaces and special characters
+    cdw() {
+        if [ -z "$1" ]; then
+            echo "Usage: cdw <windows_path>"
+            return 1
+        fi
+        
+        local wsl_path
+        # Handle errors from wslpath
+        if ! wsl_path=$(wslpath "$1" 2>/dev/null); then
+            echo "Error: Failed to convert Windows path: $1"
+            return 1
+        fi
+        
+        # Check if converted path exists or can be created
+        if [ ! -d "$wsl_path" ]; then
+            echo "Warning: Directory does not exist: $wsl_path"
+        fi
+        
+        # Change to directory
+        cd "$wsl_path" || return 1
+    }
+
+    # fix network DNS configuration
+    fixnet() {
+        local resolv_conf="/etc/resolv.conf"
+        
+        # Get DNS servers from Windows and write to resolv.conf, then append options
+        powershell.exe -c "Get-DnsClientServerAddress -AddressFamily IPv4|Select -ExpandProperty ServerAddresses" | tr -d "\r" | sed "s/^/nameserver /" | sudo tee "$resolv_conf" >/dev/null && \
+        echo "options timeout:1 attempts:1 rotate" | sudo tee -a "$resolv_conf" >/dev/null && \
+        echo "DNS configuration updated in $resolv_conf" || {
+            echo "Error: Failed to update DNS configuration"
+            return 1
+        }
+    }
+fi
